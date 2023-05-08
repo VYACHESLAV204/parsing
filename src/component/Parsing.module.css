@@ -1,11 +1,13 @@
 .ParsingMainDiv {
   background-image: url(../sourse/img/ParsingBGI.png);
-  max-width: 1440px;
+  max-width: 2560px;
   height: auto;
+  min-height: 900px;
   padding-top: 32px;
   margin: 0 auto;
   background-color: #f1f3f6;
-  background-repeat: no-repeat;padding-bottom: 70px;
+  background-repeat: no-repeat;
+  padding-bottom: 70px;
 }
 .innerDiv {
   width: 926px;
@@ -13,6 +15,7 @@
   border-radius: 25px;
   background-color: #fff;
   margin: 0 auto;
+  padding-bottom: 30px;
   padding-left: 75px;
   padding-right: 75px;
 }
@@ -33,6 +36,7 @@
   margin-top: 75px;
   border: 0px;
   margin-bottom: 30px;
+  display:block
 }
 
 .Radio {

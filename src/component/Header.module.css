@@ -66,6 +66,7 @@ a {
   margin-bottom: 10px;
   width: 100px;
   display: flex;
+  align-items: center;
 }
 .divInnerImg {
   height: 17px;

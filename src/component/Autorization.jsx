@@ -1,39 +1,64 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.css";
-import AddTemplateImg from "../sourse/img/material-symbols_edit-rounded.png";
-import ChangeTemplateImg from "../sourse/img/Vector.png";
-import AddUserImg from "../sourse/img/addaccount.png";
-const Autorization = () => {
+
+const Authorization = ({ login, setLogin, userChecked, setUserChecked }) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLogin((prevState) => ({ ...prevState, [name]: value }));
+  };
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    fetch("http://192.168.1.189:5000/api/all_users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(login),
+    })
+      .then((response) => response.json())
+      .then((data) => setUserChecked(data))
+      .then((data) => navigate("/home"))
+
+      .catch((error) => alert("Wrong password"))
+      .catch((error) => console.error(error));
+
+    console.log(userChecked);
+  };
+
   return (
     <div className={styles.Main_MainDiv}>
       <div className={styles.InnerDiv}>
-        <input
-          placeholder="Логин"
-          className={styles.AddAccountMainButton}
-        ></input>
-        <div className={styles.LinksDiv}>
+        <form onSubmit={handleSubmit}>
           <input
-            placeholder="Пароль"
-            className={`${styles.AddAccountMainButton} ${styles.AddAccountMainButtonHover}}`}
-          ></input>
-
-          <div className={styles.DivForAddAccountMainButton}>
-            <Link className={styles.AddAccountMainButton}>Войти</Link>
+            type="text"
+            name="user"
+            value={login.user}
+            placeholder="Логин"
+            className={styles.AddAccountMainButton}
+            onChange={handleInputChange}
+          />
+          <div className={styles.LinksDiv}>
+            <input
+              type="password"
+              name="password"
+              value={login.password}
+              placeholder="Пароль"
+              className={`${styles.AddAccountMainButton} ${styles.AddAccountMainButtonHover}`}
+              onChange={handleInputChange}
+            />
           </div>
           <div className={styles.DivForAddAccountMainButton}>
-            <Link className={styles.AddAccountMainButton}>
-              <img
-                className={styles.AddAccountLinkImg}
-                src={AddUserImg}
-                alt=""
-              />{" "}
-              Создать аккаунт
-            </Link>
+            <button type="submit" className={styles.AddAccountMainButton}>
+              Войти
+            </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
 };
 
-export default Autorization;
+export default Authorization;

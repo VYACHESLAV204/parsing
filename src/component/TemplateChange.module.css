@@ -1,0 +1,73 @@
+.AddAccountMainButton {
+  width: 130px;
+  height: 23px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  margin-top: 25px;
+  color: #362f30;
+  border-radius: 20px;
+  border: 1.2px solid #475569;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.LinkImg {
+  height: 17px;
+  width: 17px;
+  margin-right: 5px;
+}
+.targetTempalateDiv {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+}
+.innerDiv {
+  padding-top: 50px;
+  width: 926px;
+  height: auto;
+  border-radius: 25px;
+  background-color: #fff;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  padding-left: 75px;
+  padding-right: 75px;
+  display: flex;
+}
+
+.MainTextArea {
+  width: 456px;
+  height: 138px;
+  border: 0px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+
+  background-color: #eff0f7;
+  border-radius: 10px;
+}
+.from {
+  margin-bottom: 23px;
+}
+
+.templateDynamicInnerDiv {
+  display: flex;
+  flex-direction: column;
+}
+.inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 0px;
+  gap: 10px;
+  margin-bottom: 10px;
+  width: 456px;
+  height: 48px;
+
+  /* Grayscale / Input Background */
+
+  background: #eff0f7;
+  border-radius: 10px;
+}
